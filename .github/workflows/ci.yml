@@ -1,0 +1,52 @@
+# GitHub Actions CI for Saisei.
+#
+# Runs the same quality gates as `make verify` (ruff + mypy --strict + pytest)
+# on every push to main and every pull request. It does NOT use Docker or
+# `make setup` — those build the full container stack and are for local dev, not
+# CI. Tests run fully offline (no LLM, no pgvector, no RediSearch required); the
+# code degrades to the deterministic mock providers, so no services are needed.
+#
+# The job `name:` and the workflow `name:` below must stay in sync with the
+# status badge URL in README.md (.../actions/workflows/ci.yml/badge.svg).
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Cancel superseded runs on the same ref to save minutes.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: ruff + mypy --strict + pytest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies (incl. dev tools)
+        run: uv sync --extra dev
+
+      - name: Lint (ruff)
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+
+      - name: Type-check (mypy --strict)
+        run: uv run mypy app tests
+
+      - name: Test (pytest)
+        run: uv run pytest

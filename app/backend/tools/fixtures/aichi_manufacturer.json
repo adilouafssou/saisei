@@ -1,0 +1,29 @@
+{
+  "profile": {
+    "tdb_code": "1234567",
+    "hojin_bango": "1234567890123",
+    "name": "愛知精密製作所株式会社",
+    "prefecture": "愛知県",
+    "industry": "金属部品製造業",
+    "established_year": 1978,
+    "employees": 84
+  },
+  "tdb": {
+    "tdb_score": 41,
+    "anti_social_check": "clear"
+  },
+  "shisanhyo": [
+    {"period": "2025-04-30", "uriage": 142000000, "uriage_genka": 116000000, "hanbaihi": 21000000, "eigai_shueki": 300000, "eigai_hiyo": 1800000},
+    {"period": "2025-05-31", "uriage": 138000000, "uriage_genka": 115000000, "hanbaihi": 21000000, "eigai_shueki": 300000, "eigai_hiyo": 1900000},
+    {"period": "2025-06-30", "uriage": 140000000, "uriage_genka": 118000000, "hanbaihi": 21500000, "eigai_shueki": 250000, "eigai_hiyo": 2100000},
+    {"period": "2025-07-31", "uriage": 135000000, "uriage_genka": 117000000, "hanbaihi": 21500000, "eigai_shueki": 250000, "eigai_hiyo": 2300000},
+    {"period": "2025-08-31", "uriage": 133000000, "uriage_genka": 118500000, "hanbaihi": 22000000, "eigai_shueki": 200000, "eigai_hiyo": 2500000},
+    {"period": "2025-09-30", "uriage": 137000000, "uriage_genka": 122000000, "hanbaihi": 22000000, "eigai_shueki": 200000, "eigai_hiyo": 2700000},
+    {"period": "2025-10-31", "uriage": 134000000, "uriage_genka": 123500000, "hanbaihi": 22500000, "eigai_shueki": 150000, "eigai_hiyo": 2900000},
+    {"period": "2025-11-30", "uriage": 131000000, "uriage_genka": 124000000, "hanbaihi": 22500000, "eigai_shueki": 150000, "eigai_hiyo": 3100000},
+    {"period": "2025-12-31", "uriage": 129000000, "uriage_genka": 125500000, "hanbaihi": 23000000, "eigai_shueki": 100000, "eigai_hiyo": 3400000},
+    {"period": "2026-01-31", "uriage": 126000000, "uriage_genka": 126000000, "hanbaihi": 23000000, "eigai_shueki": 100000, "eigai_hiyo": 3700000},
+    {"period": "2026-02-28", "uriage": 124000000, "uriage_genka": 127500000, "hanbaihi": 23500000, "eigai_shueki": 100000, "eigai_hiyo": 4000000},
+    {"period": "2026-03-31", "uriage": 122000000, "uriage_genka": 129000000, "hanbaihi": 23500000, "eigai_shueki": 100000, "eigai_hiyo": 4300000}
+  ]
+}
