@@ -52,7 +52,7 @@ _PROMPT_PATH = Path(__file__).resolve().parents[2] / "prompts" / "feasibility_cr
 # ---------------------------------------------------------------------------
 
 #: uplift/annual_sales at or below this → 'high' achievability.
-_HIGH_RATIO_CEILING: float = 0.05   # <= 5% of annual sales
+_HIGH_RATIO_CEILING: float = 0.05  # <= 5% of annual sales
 #: uplift/annual_sales at or below this (but above high) → 'medium'.
 _MEDIUM_RATIO_CEILING: float = 0.15  # <= 15% of annual sales
 _MONTHS: int = 12

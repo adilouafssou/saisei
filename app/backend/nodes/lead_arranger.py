@@ -125,7 +125,7 @@ def compute_burden_sharing_table(state: SaiseiState) -> list[dict[str, Any]]:
 
     # Haircut %: main bank absorbs more (accountability role).
     main_haircut_pct = round(main_bank_share * 30, 1)  # up to 30%
-    sub_haircut_pct = round(sub_bank_share * 15, 1)    # up to 15%
+    sub_haircut_pct = round(sub_bank_share * 15, 1)  # up to 15%
 
     # New-money ask: proportional to gap (negative gap = deficit).
     new_money_total = abs(gap) if gap < 0 else 0
