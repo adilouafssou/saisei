@@ -98,10 +98,7 @@ def guarantor_critic_node(
     # ------------------------------------------------------------------
     # Gate 2: FSA classification path (no plan = no path to Normal)
     # ------------------------------------------------------------------
-    if (
-        state.fsa_classification is FsaClass.YUKYO_GUCHI
-        and len(strategies) == 0
-    ):
+    if state.fsa_classification is FsaClass.YUKYO_GUCHI and not strategies:
         blockers.append(
             "no_recovery_plan: 要管理先（Doubtful）にもかかわらず改善施策がありません。"
             "正常先（Normal）への回帰計画が必要です。"

@@ -41,26 +41,26 @@ __all__ = [
 #: warm paper surfaces, and a restrained accent set. Dark-first.
 COLORS: dict[str, str] = {
     # Surfaces (dark, layered).
-    "bg": "#0b1020",          # app background (deep navy ink)
-    "surface": "#121a2e",     # cards / panels
-    "surface_2": "#1a2440",   # raised elements, hover
-    "surface_3": "#222e50",   # active / selected
-    "border": "#2a3656",      # hairline borders
+    "bg": "#0b1020",  # app background (deep navy ink)
+    "surface": "#121a2e",  # cards / panels
+    "surface_2": "#1a2440",  # raised elements, hover
+    "surface_3": "#222e50",  # active / selected
+    "border": "#2a3656",  # hairline borders
     # Text.
-    "text": "#eef2ff",        # primary text
-    "text_muted": "#9aa6c7",   # secondary text
-    "text_faint": "#6b78a3",   # tertiary / captions
+    "text": "#eef2ff",  # primary text
+    "text_muted": "#9aa6c7",  # secondary text
+    "text_faint": "#6b78a3",  # tertiary / captions
     # Brand.
-    "brand": "#6d7cff",       # Saisei indigo
-    "brand_soft": "#1c2550",   # brand-tinted surface
+    "brand": "#6d7cff",  # Saisei indigo
+    "brand_soft": "#1c2550",  # brand-tinted surface
     # Semantic.
-    "pass": "#27c08a",        # PASS / healthy
-    "pass_soft": "#103a2c",    # pass-tinted surface
-    "fail": "#ff5d6c",        # FAIL / blocker
-    "fail_soft": "#3a1620",    # fail-tinted surface
-    "warn": "#f4b740",        # needs attention
-    "warn_soft": "#3a2e12",    # warn-tinted surface
-    "info": "#48b9ff",        # informational
+    "pass": "#27c08a",  # PASS / healthy
+    "pass_soft": "#103a2c",  # pass-tinted surface
+    "fail": "#ff5d6c",  # FAIL / blocker
+    "fail_soft": "#3a1620",  # fail-tinted surface
+    "warn": "#f4b740",  # needs attention
+    "warn_soft": "#3a2e12",  # warn-tinted surface
+    "info": "#48b9ff",  # informational
 }
 
 #: Border radii.
@@ -141,7 +141,7 @@ PERSONAS: dict[str, Persona] = {
         name_ja="主幹事銀行",
         kanji="主",
         icon="landmark",
-        accent="#6d7cff",        # indigo — the anchor creditor
+        accent="#6d7cff",  # indigo — the anchor creditor
         accent_soft="#1c2550",
         tagline="Accountability · P1・役員責任・資産処分",
     ),
@@ -151,7 +151,7 @@ PERSONAS: dict[str, Persona] = {
         name_ja="協調融資銀行",
         kanji="協",
         icon="scale",
-        accent="#48b9ff",        # sky — fairness across lenders
+        accent="#48b9ff",  # sky — fairness across lenders
         accent_soft="#0f2a3e",
         tagline="Fairness · P2・プロラタ負担",
     ),
@@ -161,7 +161,7 @@ PERSONAS: dict[str, Persona] = {
         name_ja="信用保証協会",
         kanji="保",
         icon="shield-check",
-        accent="#f4b740",        # amber — compliance / guarantee risk
+        accent="#f4b740",  # amber — compliance / guarantee risk
         accent_soft="#3a2e12",
         tagline="Compliance · P0・回復計画",
     ),
@@ -171,7 +171,7 @@ PERSONAS: dict[str, Persona] = {
         name_ja="取りまとめ役",
         kanji="幹",
         icon="gavel",
-        accent="#27c08a",        # green — the consolidating chair
+        accent="#27c08a",  # green — the consolidating chair
         accent_soft="#103a2c",
         tagline="Torimatome · 負担分担の取りまとめ",
     ),
@@ -181,7 +181,7 @@ PERSONAS: dict[str, Persona] = {
         name_ja="再生エンジン",
         kanji="再",
         icon="activity",
-        accent="#9aa6c7",        # muted — system narration
+        accent="#9aa6c7",  # muted — system narration
         accent_soft="#1a2440",
         tagline="Assessment narration",
     ),
@@ -191,7 +191,7 @@ PERSONAS: dict[str, Persona] = {
         name_ja="担当者",
         kanji="君",
         icon="user-round",
-        accent="#eef2ff",        # bright — the human decider
+        accent="#eef2ff",  # bright — the human decider
         accent_soft="#222e50",
         tagline="The only real decider",
     ),

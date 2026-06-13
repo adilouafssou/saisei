@@ -24,8 +24,8 @@ from queue import Queue as _Queue
 from typing import Any
 
 import reflex as rx
-from pydantic import BaseModel
 from langgraph.types import Command
+from pydantic import BaseModel
 
 from app.backend.graph import compile_graph, postgres_checkpointer
 from app.shared.logging import get_logger
@@ -43,13 +43,14 @@ class MeetingEvent(BaseModel):
     require a typed var, otherwise it raises ``UntypedVarError``.
     """
 
-    kind: str = ""          # system | critic | chair | banker
+    kind: str = ""  # system | critic | chair | banker
     speaker: str = "system"  # persona key (matches theme.PERSONAS)
-    status: str = ""        # PASS | FAIL | APPROVED | ... (may be empty)
-    priority: str = ""      # P0 | P1 | P2 (may be empty)
+    status: str = ""  # PASS | FAIL | APPROVED | ... (may be empty)
+    priority: str = ""  # P0 | P1 | P2 (may be empty)
     title: str = ""
     body: str = ""
     blockers: list[str] = []
+
 
 #: Human-readable narration for each graph node as it completes. Keys match the
 #: node names registered in ``app/backend/graph.py``. Used to build system
@@ -392,7 +393,7 @@ class SaiseiUIState(rx.State):
         self._apply_snapshot(values)
         self._refresh_burden_rows(values)
         self.active_node = ""
-        if bool(snapshot.next):
+        if snapshot.next:
             self.awaiting_decision = True
             self.phase = "awaiting_decision"
         else:

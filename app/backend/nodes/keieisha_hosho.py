@@ -79,9 +79,9 @@ _log = get_logger(__name__)
 #   <= BUNRI_CLEAN_THRESHOLD → full score (clean separation)
 #   >= BUNRI_DIRTY_THRESHOLD → zero score (poor separation)
 #   between → linear interpolation
-_BUNRI_CLEAN_THRESHOLD: float = 0.02   # 2% of sales → clean
-_BUNRI_DIRTY_THRESHOLD: float = 0.10   # 10% of sales → fully penalized
-_FULL_SHISANHYO_MONTHS: int = 12       # 12 months = full disclosure
+_BUNRI_CLEAN_THRESHOLD: float = 0.02  # 2% of sales → clean
+_BUNRI_DIRTY_THRESHOLD: float = 0.10  # 10% of sales → fully penalized
+_FULL_SHISANHYO_MONTHS: int = 12  # 12 months = full disclosure
 
 
 def assess_hosho_kaijo(
