@@ -1,0 +1,88 @@
+# GitHub Actions CI for Saisei.
+#
+# Runs the same quality gates as `make verify` (ruff + mypy --strict + pytest)
+# on every push to main and every pull request. It does NOT use Docker or
+# `make setup` — those build the full container stack and are for local dev, not
+# CI. Tests run fully offline (no LLM, no pgvector, no RediSearch required); the
+# code degrades to the deterministic mock providers, so no services are needed.
+#
+# The job `name:` and the workflow `name:` below must stay in sync with the
+# status badge URL in README.md (.../actions/workflows/ci.yml/badge.svg).
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Cancel superseded runs on the same ref to save minutes.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: ruff + mypy --strict + pytest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies (incl. dev tools + PDF verifier)
+        run: uv sync --extra dev --extra pdf
+
+      - name: Vendor CJK font for PDF export tests (Noto Sans JP, OFL 1.1)
+        run: |
+          # The PDF exporter embeds a Japanese font (a build/deploy input, not
+          # committed as a multi-MB binary). Fetch it here so the PDF render
+          # tests EXECUTE instead of skipping. fpdf2 subsets it at render time,
+          # so the generated PDFs stay small. The OFL 1.1 license travels with
+          # the repo at assets/fonts/OFL.txt.
+          mkdir -p assets/fonts
+          curl -fsSL -o assets/fonts/NotoSansJP-Regular.ttf \
+            "https://github.com/notofonts/noto-cjk/raw/main/Sans/Variable/TTF/Subset/NotoSansJP-VF.ttf"
+          # Verify it is a real TrueType/OpenType font (sfnt magic), not an
+          # error page, so a bad fetch fails the build loudly instead of
+          # silently skipping the PDF tests.
+          python - <<'PY'
+          import sys
+          with open("assets/fonts/NotoSansJP-Regular.ttf", "rb") as fh:
+              magic = fh.read(4)
+          ok = magic in (b"\x00\x01\x00\x00", b"true", b"OTTO", b"ttcf")
+          print(f"font magic={magic!r} ok={ok}")
+          sys.exit(0 if ok else 1)
+          PY
+
+      - name: Lint (ruff)
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+        # NOTE: CI is check-only by design. If this step fails, run `make fix`
+        # (or `uv run pre-commit run --all-files`) locally to auto-fix, then
+        # commit. CI must report problems, not rewrite a throwaway checkout.
+
+      - name: Type-check (mypy --strict)
+        run: uv run mypy app tests
+
+      - name: Test (pytest)
+        run: uv run pytest
+
+      - name: Eval gate (deterministic golden spine + numeric preservation)
+        run: uv run pytest tests/eval -v
+        # Named, merge-blocking eval gate (Feature 1, LangSmith eval). Runs the
+        # OFFLINE deterministic eval suite: the golden-spine harness and the
+        # Keikakusho numeric-preservation verifier. A regression here is a
+        # correctness regression in a regulated credit document and must block
+        # the merge unmistakably. The ONLINE LLM-as-judge suites under
+        # tests/eval/online/ collect-and-skip here (no LangSmith / LLM keys are
+        # configured in CI), so this step adds no network dependency.
+        
