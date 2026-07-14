@@ -1,0 +1,29 @@
+{
+  "profile": {
+    "tdb_code": "2000001",
+    "hojin_bango": "2000001000001",
+    "name": "東京サービス株式会社",
+    "prefecture": "東京都",
+    "industry": "情報サービス業",
+    "established_year": 2005,
+    "employees": 42
+  },
+  "tdb": {
+    "tdb_score": 75,
+    "anti_social_check": "clear"
+  },
+  "shisanhyo": [
+    {"period": "2025-04-30", "uriage": 100000000, "uriage_genka": 1000000, "hanbaihi": 10000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-05-31", "uriage": 100000000, "uriage_genka": 1000000, "hanbaihi": 10000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-06-30", "uriage": 100000000, "uriage_genka": 1000000, "hanbaihi": 10000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-07-31", "uriage": 100000000, "uriage_genka": 1000000, "hanbaihi": 10000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-08-31", "uriage": 100000000, "uriage_genka": 1000000, "hanbaihi": 10000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-09-30", "uriage": 100000000, "uriage_genka": 1000000, "hanbaihi": 10000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-10-31", "uriage": 100000000, "uriage_genka": 1000000, "hanbaihi": 10000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-11-30", "uriage": 100000000, "uriage_genka": 1000000, "hanbaihi": 10000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-12-31", "uriage": 100000000, "uriage_genka": 1000000, "hanbaihi": 10000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2026-01-31", "uriage": 100000000, "uriage_genka": 1000000, "hanbaihi": 10000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2026-02-28", "uriage": 100000000, "uriage_genka": 1000000, "hanbaihi": 10000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2026-03-31", "uriage": 100000000, "uriage_genka": 1000000, "hanbaihi": 10000000, "eigai_shueki": 0, "eigai_hiyo": 0}
+  ]
+}

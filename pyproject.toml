@@ -1,0 +1,131 @@
+[project]
+name = "saisei"
+version = "0.1.0"
+description = "Saisei (再生) — Autonomous EWS & Keiei Kaizen Keikakusho orchestrator for Japanese Regional Banks"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Proprietary" }
+
+dependencies = [
+    "langgraph>=0.2.0",
+    "langgraph-checkpoint-postgres>=2.0.0",
+    "reflex>=0.6.0",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "psycopg[binary]>=3.1",
+    "redis>=5.0",
+    "structlog>=24.1",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+    "httpx>=0.27",
+    "python-docx>=1.1",
+    "openpyxl>=3.1",
+    "fpdf2>=2.7",
+    "pyjwt[crypto]>=2.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.5",
+    "mypy>=1.10",
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+    "pre-commit>=3.7",
+    # Alembic owns the application Postgres schema (audit / trajectory /
+    # portfolio / pgvector memory tables). It is a dev/deploy-only tool -- the
+    # runtime app never imports it, so the offline-first contract is preserved.
+    # Pulls in SQLAlchemy, which env.py uses only to open the migration engine.
+    "alembic>=1.13",
+]
+# PDF support / verification. `pypdf` reads back the embedded figures in the
+# Keikakusho PDF so the numeric-preservation eval can prove prose-only edits
+# never alter a yen value. Kept separate from `dev` so a deployer can install
+# PDF tooling without the full lint/type/test toolchain.
+pdf = [
+    "pypdf>=4.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.hatch.build.targets.wheel.force-include]
+# Ensure bundled fixture JSON files ship inside the wheel.
+"app/backend/tools/fixtures" = "app/backend/tools/fixtures"
+# Ensure the governing-constants baseline ships inside the wheel so the
+# model-card change log / drift guard can read it from an installed package
+# (load_constants_baseline resolves it relative to the module file).
+"app/backend/export/governing_constants_baseline.json" = "app/backend/export/governing_constants_baseline.json"
+# Ensure the vendored CJK font ships inside the wheel so the PDF exporter can
+# embed it from an installed package. The font is a build/deploy input (a binary
+# cannot live in source as text); place NotoSansJP-Regular.ttf here before
+# building, or set SAISEI_PDF_FONT_PATH at runtime.
+"assets/fonts" = "assets/fonts"
+
+# ----------------------------------------------------------------------------
+# Ruff
+# ----------------------------------------------------------------------------
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["app", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+    "C4",  # flake8-comprehensions
+    "SIM", # flake8-simplify
+    "T20", # flake8-print (ban print)
+]
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["T20"]
+
+# ----------------------------------------------------------------------------
+# Mypy (strict)
+# ----------------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_return_any = true
+no_implicit_reexport = true
+show_error_codes = true
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["reflex.*"]
+ignore_missing_imports = true
+
+# python-docx (docx) and openpyxl ship no type stubs; the export modules use
+# them in the backend (not frontend-exempt), so without this mypy --strict
+# fails with "Cannot find implementation or library stub".
+[[tool.mypy.overrides]]
+module = ["docx.*", "openpyxl.*", "fpdf.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["app.frontend.*"]
+ignore_errors = true
+
+# ----------------------------------------------------------------------------
+# Pytest
+# ----------------------------------------------------------------------------
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-ra -q"
+asyncio_mode = "auto"
+markers = [
+    "network: tests that require a live network/database connection (skipped offline / in CI).",
+]

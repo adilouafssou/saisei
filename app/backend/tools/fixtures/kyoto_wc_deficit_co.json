@@ -1,0 +1,41 @@
+{
+  "profile": {
+    "tdb_code": "5000001",
+    "hojin_bango": "5000001000001",
+    "name": "京都精工品卸売株式会社",
+    "prefecture": "京都府",
+    "industry": "機械器具卸売業",
+    "established_year": 2001,
+    "employees": 29
+  },
+  "tdb": {
+    "tdb_score": 63,
+    "anti_social_check": "clear"
+  },
+  "shisanhyo": [
+    {"period": "2024-04-30", "uriage": 63180000, "uriage_genka": 54920000, "hanbaihi": 4600000, "eigai_shueki": 180000, "eigai_hiyo": 720000},
+    {"period": "2024-05-31", "uriage": 61240000, "uriage_genka": 53210000, "hanbaihi": 4600000, "eigai_shueki": 180000, "eigai_hiyo": 730000},
+    {"period": "2024-06-30", "uriage": 62470000, "uriage_genka": 54260000, "hanbaihi": 4650000, "eigai_shueki": 170000, "eigai_hiyo": 740000},
+    {"period": "2024-07-31", "uriage": 62810000, "uriage_genka": 54580000, "hanbaihi": 4650000, "eigai_shueki": 170000, "eigai_hiyo": 740000},
+    {"period": "2024-08-31", "uriage": 59930000, "uriage_genka": 52020000, "hanbaihi": 4650000, "eigai_shueki": 160000, "eigai_hiyo": 750000},
+    {"period": "2024-09-30", "uriage": 63120000, "uriage_genka": 54840000, "hanbaihi": 4700000, "eigai_shueki": 170000, "eigai_hiyo": 750000},
+    {"period": "2024-10-31", "uriage": 62540000, "uriage_genka": 54330000, "hanbaihi": 4700000, "eigai_shueki": 160000, "eigai_hiyo": 760000},
+    {"period": "2024-11-30", "uriage": 61870000, "uriage_genka": 53780000, "hanbaihi": 4700000, "eigai_shueki": 160000, "eigai_hiyo": 770000},
+    {"period": "2024-12-31", "uriage": 64910000, "uriage_genka": 56430000, "hanbaihi": 4750000, "eigai_shueki": 170000, "eigai_hiyo": 780000},
+    {"period": "2025-01-31", "uriage": 60480000, "uriage_genka": 52520000, "hanbaihi": 4750000, "eigai_shueki": 150000, "eigai_hiyo": 780000},
+    {"period": "2025-02-28", "uriage": 61330000, "uriage_genka": 53290000, "hanbaihi": 4750000, "eigai_shueki": 150000, "eigai_hiyo": 790000},
+    {"period": "2025-03-31", "uriage": 65240000, "uriage_genka": 56760000, "hanbaihi": 4800000, "eigai_shueki": 170000, "eigai_hiyo": 800000},
+    {"period": "2025-04-30", "uriage": 63010000, "uriage_genka": 54780000, "hanbaihi": 4800000, "eigai_shueki": 160000, "eigai_hiyo": 810000},
+    {"period": "2025-05-31", "uriage": 60570000, "uriage_genka": 52610000, "hanbaihi": 4800000, "eigai_shueki": 150000, "eigai_hiyo": 820000},
+    {"period": "2025-06-30", "uriage": 62840000, "uriage_genka": 54620000, "hanbaihi": 4850000, "eigai_shueki": 160000, "eigai_hiyo": 830000},
+    {"period": "2025-07-31", "uriage": 62190000, "uriage_genka": 54040000, "hanbaihi": 4850000, "eigai_shueki": 150000, "eigai_hiyo": 840000},
+    {"period": "2025-08-31", "uriage": 59410000, "uriage_genka": 51580000, "hanbaihi": 4850000, "eigai_shueki": 140000, "eigai_hiyo": 850000},
+    {"period": "2025-09-30", "uriage": 62630000, "uriage_genka": 54410000, "hanbaihi": 4900000, "eigai_shueki": 150000, "eigai_hiyo": 860000},
+    {"period": "2025-10-31", "uriage": 61980000, "uriage_genka": 53860000, "hanbaihi": 4900000, "eigai_shueki": 150000, "eigai_hiyo": 870000},
+    {"period": "2025-11-30", "uriage": 61240000, "uriage_genka": 53280000, "hanbaihi": 4900000, "eigai_shueki": 140000, "eigai_hiyo": 880000},
+    {"period": "2025-12-31", "uriage": 64470000, "uriage_genka": 56090000, "hanbaihi": 4950000, "eigai_shueki": 160000, "eigai_hiyo": 890000},
+    {"period": "2026-01-31", "uriage": 60110000, "uriage_genka": 52260000, "hanbaihi": 4950000, "eigai_shueki": 140000, "eigai_hiyo": 900000},
+    {"period": "2026-02-28", "uriage": 61020000, "uriage_genka": 53080000, "hanbaihi": 4950000, "eigai_shueki": 140000, "eigai_hiyo": 910000},
+    {"period": "2026-03-31", "uriage": 62740000, "uriage_genka": 54540000, "hanbaihi": 5000000, "eigai_shueki": 150000, "eigai_hiyo": 920000}
+  ]
+}

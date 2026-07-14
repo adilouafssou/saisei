@@ -1,0 +1,29 @@
+{
+  "profile": {
+    "tdb_code": "3000001",
+    "hojin_bango": "3000001000001",
+    "name": "大阪軽工業株式会社",
+    "prefecture": "大阪府",
+    "industry": "軽工業製造業",
+    "established_year": 1995,
+    "employees": 38
+  },
+  "tdb": {
+    "tdb_score": 55,
+    "anti_social_check": "clear"
+  },
+  "shisanhyo": [
+    {"period": "2025-04-30", "uriage": 80000000, "uriage_genka": 60000000, "hanbaihi": 15000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-05-31", "uriage": 80000000, "uriage_genka": 60000000, "hanbaihi": 15000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-06-30", "uriage": 80000000, "uriage_genka": 60000000, "hanbaihi": 15000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-07-31", "uriage": 80000000, "uriage_genka": 60000000, "hanbaihi": 15000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-08-31", "uriage": 80000000, "uriage_genka": 60000000, "hanbaihi": 15000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-09-30", "uriage": 80000000, "uriage_genka": 60000000, "hanbaihi": 15000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-10-31", "uriage": 80000000, "uriage_genka": 60000000, "hanbaihi": 15000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-11-30", "uriage": 80000000, "uriage_genka": 60000000, "hanbaihi": 15000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2025-12-31", "uriage": 80000000, "uriage_genka": 60000000, "hanbaihi": 15000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2026-01-31", "uriage": 80000000, "uriage_genka": 60000000, "hanbaihi": 15000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2026-02-28", "uriage": 80000000, "uriage_genka": 60000000, "hanbaihi": 15000000, "eigai_shueki": 0, "eigai_hiyo": 0},
+    {"period": "2026-03-31", "uriage": 79000000, "uriage_genka": 61000000, "hanbaihi": 15000000, "eigai_shueki": 0, "eigai_hiyo": 0}
+  ]
+}
